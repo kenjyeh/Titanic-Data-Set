@@ -1,0 +1,44 @@
+install.packages('titanic')
+install.packages('partykit')
+
+library(partykit)
+library(tidyverse)
+library(titanic)
+library(tidyverse)
+library(rpart)       
+library(rpart.plot) 
+
+
+help(titanic)
+help(ctree)
+summary(titanic_train)
+
+titanic_df <- titanic_train %>% as_tibble() %>% 
+  mutate(Suvived = if_else(Survived == 1, 
+                           "Survived", "Dead"),
+         Survived = as.factor(Survived),
+         Sex = as.factor(Sex),
+         Pclass = as.factor(Pclass)) %>% 
+  mutate_if(is.character, as.factor)
+
+# ctree to estimate model 
+titanic_tree <- ctree(Survived ~ Sex + Pclass + Age + Fare, 
+                      data = titanic_df)
+titanic_tree
+
+plot(titanic_tree)
+
+titanic_mod_rpart <- rpart(Survived ~ Sex + Pclass +
+                             Age + SibSp + Fare +
+                             Ticket + Cabin + Embarked +
+                             Parch,
+                           data = titanic_df,
+                           method = "anova",
+                           control = list(cp = 0, 
+                                          minsplit = 10,
+                                          maxdepth = 5))
+
+
+titanic_mod_rpart$cptable
+plotcp(titanic_mod_rpart)
+

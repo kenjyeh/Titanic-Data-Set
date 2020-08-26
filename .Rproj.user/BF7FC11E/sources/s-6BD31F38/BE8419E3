@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1598466143439.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BE8419E3",
+    "lastKnownWriteTime" : 1571801854,
+    "last_content_update" : 1598466191691,
+    "path" : "~/Titanic Data Set/Titanic Decision Tree.R",
+    "project_path" : "Titanic Decision Tree.R",
+    "properties" : {
+        "cursorPosition" : "43,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
